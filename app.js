@@ -5,7 +5,8 @@ var express = require("express"),
         logger = require("morgan"),
         mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27018/peliculas', function (err, res) {
+var dbconnection = 'mongodb://' + process.env.DB_HOST + '/peliculas';
+mongoose.connect(dbconnection, function (err, res) {
     if (err) {
         throw err;
     }
