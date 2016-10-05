@@ -1,5 +1,5 @@
 var express = require('express');
-var PeliculaCtrl = require('./controllers/peliculas');
+var PeliculaCtrl = require('../controllers/peliculas');
 var router = express.Router();
 router.route('/pelicula')
         .get(PeliculaCtrl.findAllPeliculas)
