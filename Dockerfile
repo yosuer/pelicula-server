@@ -1,8 +1,15 @@
-FROM node:4.4.0
-EXPOSE 3000
+FROM node:argon
 
-WORKDIR /app
-COPY . /app
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
+# Install app dependencies
+COPY package.json /usr/src/app/
 RUN npm install
-RUN npm start
+
+# Bundle app source
+COPY . /usr/src/app
+
+EXPOSE 3000
+CMD [ "npm", "start" ]
